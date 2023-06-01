@@ -1,0 +1,1363 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Laravel OpenApi Demo Documentation",
+        "description": "L5 Swagger OpenApi description",
+        "contact": {
+            "email": "admin@admin.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:8000",
+            "description": "Demo API Server"
+        }
+    ],
+    "paths": {
+        "/api/admin/login": {
+            "post": {
+                "tags": [
+                    "login admin"
+                ],
+                "summary": "Register new admin",
+                "operationId": "login",
+                "requestBody": {
+                    "description": "Input data format",
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "properties": {
+                                    "email": {
+                                        "description": "Updated name of the pet",
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "description": "Updated name of the pet",
+                                        "type": "password"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/api/admin/register": {
+            "post": {
+                "tags": [
+                    "Register admin"
+                ],
+                "summary": "Register new admin",
+                "operationId": "register",
+                "requestBody": {
+                    "description": "Input data format",
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "description": "Updated name of the pet",
+                                        "type": "string"
+                                    },
+                                    "email": {
+                                        "description": "Updated name of the pet",
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "description": "Updated name of the pet",
+                                        "type": "password"
+                                    },
+                                    "password_confirmation": {
+                                        "description": "Updated name of the pet",
+                                        "type": "string"
+                                    },
+                                    "phone": {
+                                        "description": "Updated name of the pet",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/api/admin/details": {
+            "get": {
+                "tags": [
+                    "admin details"
+                ],
+                "summary": "admin details",
+                "operationId": "details",
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/logout": {
+            "post": {
+                "tags": [
+                    "logout"
+                ],
+                "summary": "to logout admin",
+                "operationId": "logout_admin",
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/updater": {
+            "post": {
+                "tags": [
+                    "update admin profile"
+                ],
+                "summary": "update admin profile details",
+                "operationId": "update_profile",
+                "requestBody": {
+                    "description": "Input data format",
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "description": "Updated name of the pet",
+                                        "type": "string"
+                                    },
+                                    "email": {
+                                        "description": "Updated name of the pet",
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "description": "Updated name of the pet",
+                                        "type": "password"
+                                    },
+                                    "password_confirmation": {
+                                        "description": "Updated name of the pet",
+                                        "type": "string"
+                                    },
+                                    "phone": {
+                                        "description": "Updated name of the pet",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/api/admin/users_list": {
+            "get": {
+                "tags": [
+                    "user list"
+                ],
+                "summary": "get all the list of users",
+                "operationId": "users_list",
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/company_list": {
+            "get": {
+                "tags": [
+                    "company list"
+                ],
+                "summary": "get all the list of companies",
+                "operationId": "company_list",
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/delete_user/{id}": {
+            "post": {
+                "tags": [
+                    "delete user with id"
+                ],
+                "summary": "delete intern",
+                "operationId": "delete_user_with_id",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Status values that needed to be considered for filter",
+                        "required": true,
+                        "explode": true,
+                        "schema": {
+                            "type": "integer",
+                            "default": "available"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/delete_company/{id}": {
+            "post": {
+                "tags": [
+                    "delete company with id"
+                ],
+                "summary": "delete a company by admin",
+                "operationId": "delete_company_with_id",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Status values that needed to be considered for filter",
+                        "required": true,
+                        "explode": true,
+                        "schema": {
+                            "type": "integer",
+                            "default": "available"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/delete_job_post/{job_id}": {
+            "post": {
+                "tags": [
+                    "delete job_post with id"
+                ],
+                "summary": "delete a job_post by admin",
+                "operationId": "delete_job_post_by_id",
+                "parameters": [
+                    {
+                        "name": "job_id",
+                        "in": "path",
+                        "description": "Status values that needed to be considered for filter",
+                        "required": true,
+                        "explode": true,
+                        "schema": {
+                            "type": "integer",
+                            "default": "available"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/api/company/login": {
+            "post": {
+                "tags": [
+                    "login company"
+                ],
+                "summary": "login admin by using email and password",
+                "operationId": "login_company",
+                "requestBody": {
+                    "description": "Input data format",
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "properties": {
+                                    "email": {
+                                        "description": "Updated name of the pet",
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "description": "Updated name of the pet",
+                                        "type": "password"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/api/company/register": {
+            "post": {
+                "tags": [
+                    "Register company"
+                ],
+                "summary": "Register new company",
+                "operationId": "register_company",
+                "requestBody": {
+                    "description": "Input data format",
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "description": "Updated name of the pet",
+                                        "type": "string"
+                                    },
+                                    "email": {
+                                        "description": "Updated name of the pet",
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "description": "Updated name of the pet",
+                                        "type": "password"
+                                    },
+                                    "password_confirmation": {
+                                        "description": "Updated name of the pet",
+                                        "type": "string"
+                                    },
+                                    "registration_number": {
+                                        "description": "Updated name of the pet",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/api/company/details": {
+            "get": {
+                "tags": [
+                    "company details"
+                ],
+                "summary": "company details",
+                "operationId": "details_company",
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/api/company/logout": {
+            "post": {
+                "tags": [
+                    "logout"
+                ],
+                "summary": "to logout company",
+                "operationId": "logout_company",
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/api/company/update_profile": {
+            "post": {
+                "tags": [
+                    "update company profile"
+                ],
+                "summary": "update company profile",
+                "operationId": "update_company_profile",
+                "requestBody": {
+                    "description": "Input data format",
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "description": "Updated name of the pet",
+                                        "type": "string"
+                                    },
+                                    "email": {
+                                        "description": "Updated name of the pet",
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "description": "Updated name of the pet",
+                                        "type": "password"
+                                    },
+                                    "password_confirmation": {
+                                        "description": "Updated name of the pet",
+                                        "type": "string"
+                                    },
+                                    "registration_number": {
+                                        "description": "Updated name of the pet",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/api/company/forms_submit": {
+            "post": {
+                "tags": [
+                    "submit jobform"
+                ],
+                "summary": "submit new form to add a new job post",
+                "operationId": "submit_job_form",
+                "requestBody": {
+                    "description": "Input data format",
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "properties": {
+                                    "title": {
+                                        "description": "Updated name of the pet",
+                                        "type": "string"
+                                    },
+                                    "description": {
+                                        "description": "Updated name of the pet",
+                                        "type": "string"
+                                    },
+                                    "company_id": {
+                                        "description": "Updated name of the pet",
+                                        "type": "string"
+                                    },
+                                    "due_date": {
+                                        "description": "Updated name of the pet",
+                                        "type": "string"
+                                    },
+                                    "skills": {
+                                        "description": "Updated name of the pet",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/api/job_posted": {
+            "get": {
+                "tags": [
+                    "jobs_posted"
+                ],
+                "summary": "get all skills",
+                "description": "Multiple status values can be provided with comma separated string",
+                "operationId": "get_all_post",
+                "parameters": [
+                    {
+                        "name": "status",
+                        "in": "query",
+                        "description": "Status values that needed to be considered for filter",
+                        "required": true,
+                        "explode": true,
+                        "schema": {
+                            "type": "string",
+                            "default": "available"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "Invalid status value"
+                    }
+                }
+            }
+        },
+        "/api/company/update_job_forms/{job_id}": {
+            "get": {
+                "tags": [
+                    "update job form display"
+                ],
+                "summary": "update job form display",
+                "operationId": "update_job_form_display",
+                "parameters": [
+                    {
+                        "name": "status",
+                        "in": "path",
+                        "description": "job id",
+                        "required": true,
+                        "explode": true,
+                        "schema": {
+                            "type": "string",
+                            "default": "available"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "Invalid status value"
+                    }
+                }
+            }
+        },
+        "/api/company/update_job_form/{job_id}": {
+            "post": {
+                "tags": [
+                    "update jobform"
+                ],
+                "summary": "update job form to add edit job post",
+                "operationId": "update_job_form",
+                "parameters": [
+                    {
+                        "name": "job_id",
+                        "in": "path",
+                        "description": "job form id",
+                        "required": true,
+                        "explode": true,
+                        "schema": {
+                            "type": "integer",
+                            "default": "available"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Input data format",
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "properties": {
+                                    "title": {
+                                        "description": "Updated name of the pet",
+                                        "type": "string"
+                                    },
+                                    "description": {
+                                        "description": "Updated name of the pet",
+                                        "type": "string"
+                                    },
+                                    "company_id": {
+                                        "description": "Updated name of the pet",
+                                        "type": "string"
+                                    },
+                                    "due_date": {
+                                        "description": "Updated name of the pet",
+                                        "type": "string"
+                                    },
+                                    "skills": {
+                                        "description": "Updated name of the pet",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/api/company/delete_job_form/{job_id}": {
+            "get": {
+                "tags": [
+                    "delete job form"
+                ],
+                "summary": "delete job form posted by a given company",
+                "operationId": "delete_job_form",
+                "parameters": [
+                    {
+                        "name": "status",
+                        "in": "path",
+                        "description": "job id",
+                        "required": true,
+                        "explode": true,
+                        "schema": {
+                            "type": "string",
+                            "default": "available"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "Invalid status value"
+                    }
+                }
+            }
+        },
+        "/api/company/job_list": {
+            "post": {
+                "tags": [
+                    "get job posted by given company"
+                ],
+                "summary": "get job posted by given company",
+                "operationId": "job_list",
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/api/company/expired_job_list": {
+            "post": {
+                "tags": [
+                    "get expired job posted by given company"
+                ],
+                "summary": "get expired job posted by given company",
+                "operationId": "get_exp_job_list",
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/api/company/expired_job_list/{job_id}": {
+            "post": {
+                "tags": [
+                    "get all user form from a expired job"
+                ],
+                "summary": "get all user form for a given expired job post",
+                "operationId": "get_applied_user_form_exp_job",
+                "parameters": [
+                    {
+                        "name": "job_id",
+                        "in": "path",
+                        "description": "job post id",
+                        "required": true,
+                        "explode": true,
+                        "schema": {
+                            "type": "integer",
+                            "default": "available"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/api/company/expired_job_list/pdf/{job_id}/{id}": {
+            "post": {
+                "tags": [
+                    "get user form pdf from exp job"
+                ],
+                "summary": "get user form  pdf for a given job post",
+                "operationId": "user_exp_form_pdf",
+                "parameters": [
+                    {
+                        "name": "job_id",
+                        "in": "path",
+                        "description": "exp job post id",
+                        "required": true,
+                        "explode": true,
+                        "schema": {
+                            "type": "integer",
+                            "default": "available"
+                        }
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "exp user form id",
+                        "required": true,
+                        "explode": true,
+                        "schema": {
+                            "type": "integer",
+                            "default": "available"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/api/company/expired_job_user_detail/{job_id}/{id}": {
+            "post": {
+                "tags": [
+                    "get user details"
+                ],
+                "summary": "get user form  details who has applied for a given job post tht has been expired",
+                "operationId": "user_details_exp",
+                "parameters": [
+                    {
+                        "name": "job_id",
+                        "in": "path",
+                        "description": "job post id",
+                        "required": true,
+                        "explode": true,
+                        "schema": {
+                            "type": "integer",
+                            "default": "available"
+                        }
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "user id",
+                        "required": true,
+                        "explode": true,
+                        "schema": {
+                            "type": "integer",
+                            "default": "available"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/api/login": {
+            "post": {
+                "tags": [
+                    "login intern"
+                ],
+                "summary": "login intern",
+                "operationId": "login_intern",
+                "requestBody": {
+                    "description": "Input data format",
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "properties": {
+                                    "email": {
+                                        "description": "Updated name of the pet",
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "description": "Updated name of the pet",
+                                        "type": "password"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/api/register": {
+            "post": {
+                "tags": [
+                    "Register intern"
+                ],
+                "summary": "Register new intern",
+                "operationId": "register_intern",
+                "requestBody": {
+                    "description": "Input data format",
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "description": "Updated name of the pet",
+                                        "type": "string"
+                                    },
+                                    "email": {
+                                        "description": "Updated name of the pet",
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "description": "Updated name of the pet",
+                                        "type": "password"
+                                    },
+                                    "password_confirmation": {
+                                        "description": "Updated name of the pet",
+                                        "type": "string"
+                                    },
+                                    "skills": {
+                                        "description": "Updated name of the pet",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/api/details": {
+            "get": {
+                "tags": [
+                    "user details"
+                ],
+                "summary": "intern details",
+                "operationId": "details_intern",
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/api/user/logout": {
+            "post": {
+                "tags": [
+                    "logout"
+                ],
+                "summary": "Add skills",
+                "operationId": "logout",
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/api/user/updater": {
+            "post": {
+                "tags": [
+                    "update intern profile"
+                ],
+                "summary": "update intern profile details",
+                "operationId": "update_profile_intern",
+                "requestBody": {
+                    "description": "Input data format",
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "description": "Updated name of the pet",
+                                        "type": "string"
+                                    },
+                                    "email": {
+                                        "description": "Updated name of the pet",
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "description": "Updated name of the pet",
+                                        "type": "password"
+                                    },
+                                    "password_confirmation": {
+                                        "description": "Updated name of the pet",
+                                        "type": "string"
+                                    },
+                                    "skills": {
+                                        "description": "Updated name of the pet",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/api/user/delete": {
+            "post": {
+                "tags": [
+                    "delete intern"
+                ],
+                "summary": "delete intern",
+                "operationId": "delete_user",
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/api/user/form": {
+            "post": {
+                "tags": [
+                    "submit user form"
+                ],
+                "summary": "submit the user form for a particular company",
+                "operationId": "submit_form",
+                "requestBody": {
+                    "description": "Input data format",
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "properties": {
+                                    "user_id": {
+                                        "description": "Updated name of the pet",
+                                        "type": "string"
+                                    },
+                                    "job_id": {
+                                        "description": "Updated name of the pet",
+                                        "type": "string"
+                                    },
+                                    "description": {
+                                        "description": "Updated name of the pet",
+                                        "type": "string"
+                                    },
+                                    "pdf": {
+                                        "description": "Updated name of the pet",
+                                        "type": "file"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/api/update_user_form/{job_id}": {
+            "get": {
+                "tags": [
+                    "user form details by job id"
+                ],
+                "summary": "user form details of applied user for a job",
+                "operationId": "user_form_display",
+                "parameters": [
+                    {
+                        "name": "job_id",
+                        "in": "path",
+                        "description": "Status values that needed to be considered for filter",
+                        "required": true,
+                        "explode": true,
+                        "schema": {
+                            "type": "integer",
+                            "default": "available"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/api/update_user_form/{id}": {
+            "post": {
+                "tags": [
+                    "update user form with an id"
+                ],
+                "summary": "update intern",
+                "operationId": "update_user_form",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Status values that needed to be considered for filter",
+                        "required": true,
+                        "explode": true,
+                        "schema": {
+                            "type": "integer",
+                            "default": "available"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Input data format",
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "properties": {
+                                    "user_id": {
+                                        "description": "Updated name of the pet",
+                                        "type": "string"
+                                    },
+                                    "job_id": {
+                                        "description": "Updated name of the pet",
+                                        "type": "string"
+                                    },
+                                    "description": {
+                                        "description": "Updated name of the pet",
+                                        "type": "string"
+                                    },
+                                    "pdf": {
+                                        "description": "Updated name of the pet",
+                                        "type": "file"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/api/user/jobs_posts": {
+            "get": {
+                "tags": [
+                    "applied jobs by user"
+                ],
+                "summary": "get all the job post where user has applied intern for",
+                "operationId": "get_all_applied_job_forms",
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/api/delete_user_form/{id}": {
+            "post": {
+                "tags": [
+                    "delete user form"
+                ],
+                "summary": "delete user form",
+                "operationId": "delete_user_form",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "user form id",
+                        "required": true,
+                        "explode": true,
+                        "schema": {
+                            "type": "integer",
+                            "default": "available"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/api/company/job_posts/{job_id}": {
+            "post": {
+                "tags": [
+                    "get all user form"
+                ],
+                "summary": "get all user form for a given job post",
+                "operationId": "get_applied_user_form",
+                "parameters": [
+                    {
+                        "name": "job_id",
+                        "in": "path",
+                        "description": "job post id",
+                        "required": true,
+                        "explode": true,
+                        "schema": {
+                            "type": "integer",
+                            "default": "available"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/api/company/job_posts/{job_id}/{id}": {
+            "post": {
+                "tags": [
+                    "get user form pdf"
+                ],
+                "summary": "get user form  pdf for a given job post",
+                "operationId": "user_form_pdf",
+                "parameters": [
+                    {
+                        "name": "job_id",
+                        "in": "path",
+                        "description": "job post id",
+                        "required": true,
+                        "explode": true,
+                        "schema": {
+                            "type": "integer",
+                            "default": "available"
+                        }
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "user form id",
+                        "required": true,
+                        "explode": true,
+                        "schema": {
+                            "type": "integer",
+                            "default": "available"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/api/company/job_post/{job_id}/{id}": {
+            "post": {
+                "tags": [
+                    "get user details"
+                ],
+                "summary": "get user form  details who has applied for a given job post",
+                "operationId": "user_details",
+                "parameters": [
+                    {
+                        "name": "job_id",
+                        "in": "path",
+                        "description": "job post id",
+                        "required": true,
+                        "explode": true,
+                        "schema": {
+                            "type": "integer",
+                            "default": "available"
+                        }
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "user id",
+                        "required": true,
+                        "explode": true,
+                        "schema": {
+                            "type": "integer",
+                            "default": "available"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/api/email/verification-notification": {
+            "get": {
+                "tags": [
+                    "send email verification notification"
+                ],
+                "summary": "to send the newly registered user email verification notification",
+                "operationId": "sendEmailVerification",
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Projects",
+            "description": "API Endpoints of Projects"
+        }
+    ],
+    "components": {
+        "securitySchemes": {
+            "sanctum": {
+                "type": "apiKey",
+                "description": "Enter token in format (Bearer <token>)",
+                "name": "Authorization",
+                "in": "header"
+            }
+        }
+    }
+}
